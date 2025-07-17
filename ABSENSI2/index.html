@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Absensi Siswa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f1f1f1;
+        }
+
+        .slide {
+            width: 340px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .page {
+            padding: 30px;
+            display: none;
+            animation: fade 0.4s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .go-btn {
+            width: 100%;
+            padding: 15px;
+            background: orange;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .go-btn:hover {
+            background: darkorange;
+        }
+
+        .menu-item {
+            background: #f9f9f9;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .menu-item:hover {
+            background: #eee;
+        }
+
+        .arrow {
+            font-weight: bold;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slide">
+        <!-- Halaman 1: Login/Intro -->
+        <div class="page active" id="page1">
+            <div class="logo">LOGO</div>
+            <div class="title">Welcome to</div>
+            <div class="subtitle">APP ABSENSI STUDENT<br>SUMMERHILLS SCHOOLS</div>
+            <button class="go-btn" onclick="nextPage()">GO</button>
+        </div>
+
+        <!-- Halaman 2: Menu Absensi -->
+        <div class="page" id="page2">
+            <div class="menu-item" onclick="window.location.href='absen_masuk.php'">
+                Absen Masuk <span class="arrow">></span>
+            </div>
+            <div class="menu-item" onclick="window.location.href='absen_keluar.php'">
+                Absen Keluar <span class="arrow">></span>
+            </div>
+            <div class="menu-item" onclick="window.location.href='izin.php'">
+                Izin <span class="arrow">></span>
+            </div>
+            <div class="menu-item" onclick="window.location.href='riwayat.php'">
+                Riwayat Absen <span class="arrow">></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function nextPage() {
+            document.getElementById("page1").classList.remove("active");
+            document.getElementById("page2").classList.add("active");
+            
+        }
+    </script>
+
+
+</body>
+
+</html>
